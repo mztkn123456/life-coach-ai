@@ -4,19 +4,22 @@
  * 解决CORS跨域问题
  */
 
+// 加载环境变量
+require('dotenv').config();
+
 const http = require('http');
 const https = require('https');
 const url = require('url');
 
-// 火山方舟API配置
-const API_KEY = '3c0dce54-3f69-4e45-b7b6-4b1a4ac9bd7f';
-const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
-const MODEL = 'doubao-1-5-pro-32k-250115';
+// 从环境变量获取火山方舟API配置
+const API_KEY = process.env.API_KEY;
+const API_URL = process.env.API_URL;
+const MODEL = process.env.MODEL;
 
 // 创建HTTP服务器
 const server = http.createServer((req, res) => {
     // 设置CORS头，允许跨域请求
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     
@@ -108,6 +111,7 @@ const PORT = process.env.PORT || 3000;
 
 // 启动服务器
 server.listen(PORT, () => {
-    console.log(`服务器运行在 http://localhost:${PORT}`);
+    console.log(`服务器运行在端口 ${PORT}`);
     console.log('使用 Ctrl+C 停止服务器');
+    console.log('环境:', process.env.NODE_ENV || 'development');
 });

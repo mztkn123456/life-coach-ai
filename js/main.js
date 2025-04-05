@@ -3,15 +3,19 @@
  * 负责处理用户界面交互和对话管理
  */
 
+// 导入配置和API函数
+import config from './config.js';
+import { sendMessageToAI } from './api.js';
+
 // DOM元素
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 const voiceButton = document.getElementById('voice-button');
 
-// 设置默认参数（因为已移除设置面板）
-const defaultTemperature = 0.6;
-const defaultStreamOutput = true;
+// 从配置中获取默认参数
+const defaultTemperature = config.defaultTemperature;
+const defaultStreamOutput = config.defaultStreamOutput;
 
 // 对话历史
 let messageHistory = [

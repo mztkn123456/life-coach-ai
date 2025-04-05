@@ -3,8 +3,11 @@
  * 包含发送消息到AI服务的函数和处理响应的逻辑
  */
 
+// 导入配置
+import config from './config.js';
+
 // API通信相关常量
-const API_ENDPOINT = 'http://localhost:3000/chat';
+const API_ENDPOINT = config.apiEndpoint;
 
 /**
  * 发送消息到AI服务
@@ -14,7 +17,7 @@ const API_ENDPOINT = 'http://localhost:3000/chat';
  * @param {Function} onComplete - 响应完成的回调函数
  * @returns {Promise} - 返回Promise对象
  */
-async function sendMessageToAI(messages, options = {}, onChunk = null, onComplete = null) {
+export async function sendMessageToAI(messages, options = {}, onChunk = null, onComplete = null) {
     try {
         // 默认配置
         const defaultOptions = {
