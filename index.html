@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Coach AI - 你的个人成长助手</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- 使用语义化HTML标签和响应式设计 -->
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <div class="container">
+            <h1>Life Coach AI</h1>
+            <p>通过AI对话，获取个人成长建议</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="container">
+        <!-- 对话区域 -->
+        <section class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <!-- 欢迎消息 -->
+                <div class="message ai-message">
+                    <div class="message-content">
+                        <p>你好！我是你的Life Coach AI助手。我可以帮助你解决问题，给予建议，促进你的个人成长。请告诉我你想聊些什么？</p>
+                    </div>
+                </div>
+                <!-- 对话消息将动态添加到这里 -->
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="input-area">
+                <textarea id="user-input" placeholder="输入你的问题或想法..." rows="3"></textarea>
+                <button id="voice-button" class="voice-button" title="开始语音对话">
+                    <span class="material-symbols-rounded">mic</span>
+                </button>
+                <button id="send-button" class="send-button">
+                    <span class="material-symbols-rounded">send</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>Life Coach AI - 基于火山方舟Doubao API</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="./js/api.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
