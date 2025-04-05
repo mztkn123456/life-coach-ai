@@ -19,7 +19,13 @@ const MODEL = process.env.MODEL;
 // 创建HTTP服务器
 const server = http.createServer((req, res) => {
     // 设置CORS头，允许跨域请求
-    res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
+    const origin = req.headers.origin;
+    // 允许来自Vercel域名和本地开发环境的请求
+    if (origin && (origin.includes('vercel.app') || origin.includes('localhost'))) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    } else {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+    }
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Max-Age', '86400');
