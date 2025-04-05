@@ -11,7 +11,7 @@ const isProduction = window.location.hostname !== 'localhost' &&
 const config = {
     // API端点
     apiEndpoint: isProduction 
-        ? 'https://your-production-domain.com/chat' // 生产环境API地址（部署后需要替换为实际地址）
+        ? 'https://life-coach-ai-mu.vercel.app/chat' // Vercel部署的API地址
         : 'http://localhost:3000/chat', // 开发环境API地址
     
     // 其他配置参数
